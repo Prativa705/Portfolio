@@ -35,6 +35,12 @@ export function Frameworks() {
   );
 }
 
+import PropTypes from "prop-types";
+
 const Icon = ({ src }) => (
   <img src={src} className="duration-200 rounded-sm hover:scale-110" />
 );
+
+Icon.propTypes = {
+  src: PropTypes.string.isRequired,
+};
