@@ -4,6 +4,8 @@ import { reviews } from "../constants";
 const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
 
+import PropTypes from "prop-types";
+
 const ReviewCard = ({ img, name, username, body }) => {
   return (
     <figure
@@ -29,6 +31,13 @@ const ReviewCard = ({ img, name, username, body }) => {
       <blockquote className="mt-2 text-sm">{body}</blockquote>
     </figure>
   );
+};
+
+ReviewCard.propTypes = {
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
 };
 
 export default function Testimonial() {
