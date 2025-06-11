@@ -6,7 +6,8 @@ Source: https://sketchfab.com/3d-models/tenhun-falling-spaceman-fanart-9fd80b6a2
 Title: Tenhun Falling spaceman (FanArt)
 */
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useMotionValue, useSpring } from "motion/react";
 import { useFrame } from "@react-three/fiber";
@@ -35,10 +36,9 @@ export function Astronaut(props) {
     <group
       ref={group}
       {...props}
-      dispose={null}
-      rotation={[-Math.PI / 2, -0.2, 2.2]}
       scale={props.scale || 0.3}
       position={props.position || [1.3, -1, 0]}
+      rotation={[-Math.PI / 2, -0.2, 2.2]}
     >
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model">
@@ -126,5 +126,13 @@ export function Astronaut(props) {
     </group>
   );
 }
+useGLTF.preload("/models/tenhun_falling_spaceman_fanart.glb");
 
+Astronaut.propTypes = {
+  scale: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  position: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.object
+  ]),
+};
 useGLTF.preload("/models/tenhun_falling_spaceman_fanart.glb");

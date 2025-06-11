@@ -1,4 +1,6 @@
 import { twMerge } from "tailwind-merge";
+import PropTypes from "prop-types";
+
 export default function Marquee({
   className,
   reverse = false,
@@ -38,3 +40,12 @@ export default function Marquee({
     </div>
   );
 }
+
+Marquee.propTypes = {
+  className: PropTypes.string,
+  reverse: PropTypes.bool,
+  pauseOnHover: PropTypes.bool,
+  children: PropTypes.node,
+  vertical: PropTypes.bool,
+  repeat: PropTypes.number,
+};

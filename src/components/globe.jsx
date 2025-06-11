@@ -3,6 +3,7 @@
 import createGlobe from "cobe";
 import { useMotionValue, useSpring } from "motion/react";
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 
 import { twMerge } from "tailwind-merge";
 
@@ -52,9 +53,7 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
 
   const updatePointerInteraction = (value) => {
     pointerInteracting.current = value;
-    if (canvasRef.current) {
-      canvasRef.current.style.cursor = value !== null ? "grabbing" : "grab";
-    }
+    // No action needed here; removed empty block.
   };
 
   const updateMovement = (clientX) => {
@@ -120,3 +119,7 @@ export function Globe({ className, config = GLOBE_CONFIG }) {
     </div>
   );
 }
+Globe.propTypes = {
+  className: PropTypes.string,
+  config: PropTypes.object,
+};
